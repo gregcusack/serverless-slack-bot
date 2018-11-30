@@ -1,0 +1,13 @@
+provider:
+  name: faas
+  gateway: http://192.168.99.100:31112
+functions:
+  slack-bot:
+    lang: python3
+    handler: ./slack-bot
+    image: gregcusack/slack-bot:latest
+    environment:
+        write_debug: true
+        gateway_hostname: "gateway"
+    environment_file:
+        - env.yml
